@@ -21,4 +21,12 @@ Things you may want to cover:
 
 * Deployment instructions
 
+* Entities
+
+  - Admin
+  - User
+  - Test
+  - Question
+  - Possible answer
+
 * ...
