@@ -52,3 +52,20 @@ user = User.create(email: "user4@gmail.com", role: "user")
 user = User.create(email: "user5@gmail.com", role: "user")
 user = User.create(email: "iam@gmail.com", role: "admin")
 
+complited_test = ComplitedTest.create(user_id: 1, test_id: 1)
+complited_test = ComplitedTest.create(user_id: 1, test_id: 2)
+complited_test = ComplitedTest.create(user_id: 1, test_id: 3)
+
+complited_test = ComplitedTest.create(user_id: 2, test_id: 1)
+complited_test = ComplitedTest.create(user_id: 2, test_id: 2)
+complited_test = ComplitedTest.create(user_id: 2, test_id: 3)
+complited_test = ComplitedTest.create(user_id: 2, test_id: 4)
+complited_test = ComplitedTest.create(user_id: 2, test_id: 5)
+complited_test = ComplitedTest.create(user_id: 2, test_id: 6)
+
+complited_test = ComplitedTest.create(user_id: 3, test_id: 1)
+
+complited_test = ComplitedTest.create(user_id: 4, test_id: 1)
+complited_test = ComplitedTest.create(user_id: 4, test_id: 2)
+
+complited_test = ComplitedTest.create(user_id: 5, test_id: 5)
