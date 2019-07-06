@@ -46,12 +46,14 @@ props_answer = Answer.create(body: "Arbitrary data of React components which cal
 components_answer = Answer.create(body: "Components are the blocks of React app which have own layout and properties.", correct: true, question_id: components_question.id)
 redux_answer = Answer.create(body: "A predictable state container for JavaScript apps.", correct: true, question_id: redux_question.id)
 
-user1 = User.create(email: "user1@gmail.com", role: "user")
-user2 = User.create(email: "user2@gmail.com", role: "user")
-user3 = User.create(email: "user3@gmail.com", role: "user")
-user4 = User.create(email: "user4@gmail.com", role: "user")
-user5 = User.create(email: "user5@gmail.com", role: "user")
-iam = User.create(email: "iam@gmail.com", role: "admin")
+users = User.create([ 
+  {email: "user1@gmail.com", role: "user"},
+  {email: "user2@gmail.com", role: "user"},
+  {email: "user3@gmail.com", role: "user"},
+  {email: "user4@gmail.com", role: "user"},
+  {email: "user5@gmail.com", role: "user"},
+  {email: "iam@gmail.com", role: "admin"}
+])
 
 complited_test1 = ComplitedTest.create(user_id: user1.id, test_id: animation.id)
 complited_test2 = ComplitedTest.create(user_id: user1.id, test_id: flexbox.id)
