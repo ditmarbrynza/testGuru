@@ -8,5 +8,5 @@ class User < ApplicationRecord
     tests.where(level: level)
   end
 
-
+  validates :email, presence: true
 end

@@ -12,4 +12,7 @@ class Test < ApplicationRecord
   scope :middle, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
 
+  validates :title, presence: true
+  validates :level, numericality: { only_integer: true, greater_than: -1 }
+  validates :title, uniqueness: { scope: level }
 end
