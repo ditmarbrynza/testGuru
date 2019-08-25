@@ -1,0 +1,16 @@
+<h1> Create new questions</h1>
+
+<form action="/tests/1/questions" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <p>
+    <label for="question-body">body:</label>
+    <input type="text" name="questions[body]" id="question-body">
+  </p> <br>
+
+   <p>
+    <label for="question-body">test_id:</label>
+    <input type="text" name="questions[test_id]" id="question-body">
+  </p> <br>
+
+  <button type="sumbit" value="Create">Create</button>
+</form>
