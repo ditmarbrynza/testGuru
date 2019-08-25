@@ -1,10 +1,8 @@
 class QuestionsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
-  before_action :find_test, only: %i[index]
-
+  before_action :find_test, only: %i[index create new]
   before_action :find_question, only: %i[show destroy]
-  before_action :find_all_question, only: %i[index]
   
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -17,8 +15,13 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    question = Question.create(question_params)
-    render plain: question.inspect
+    @question = @test.questions.new(question_params)
+
+    if @question.save
+      render inline: 'Вопрос создан!'
+    else 
+      render :new
+    end
   end
 
   def destroy
@@ -27,7 +30,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
-
+    
   end
 
   private
@@ -40,16 +43,13 @@ class QuestionsController < ApplicationController
     @test = Test.find(params[:test_id])
   end
 
-  def find_all_question
-    @questions = Question.all
+  def question_params
+    params.require(:questions).permit(:body)
   end
 
   def rescue_with_question_not_found
     render plain: "Question was not Found"
-  end
-
-  def question_params
-    params.require(:questions).permit(:body, :test_id)
+    head 404
   end
 
 end

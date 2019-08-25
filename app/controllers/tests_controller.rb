@@ -8,11 +8,6 @@ class TestsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    # byebug
-    # /tests?level=2&lang=ru
-    # /tests?data%5Blevel%5D=2&data%5Blang%5D=ru
-    # /tests?data%5B%5D%5Blevel%5D=1&data%5B%5Dlevel%5D=2
-
     # result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
     respond_to do |format|
       format.html { render plain: 'All tests' }
@@ -29,7 +24,7 @@ class TestsController < ApplicationController
   end
 
   def create
-    test = Test.create(test_params)
+    test = Test.new(test_params)
     render plain: test.inspect
   end
 
