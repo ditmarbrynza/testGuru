@@ -25,7 +25,13 @@ class TestsController < ApplicationController
 
   def create
     test = Test.new(test_params)
-    render plain: test.inspect
+
+    if test.save
+      render inline: 'Тест создан!'
+    else 
+      render :new
+    end
+
   end
 
   def search
