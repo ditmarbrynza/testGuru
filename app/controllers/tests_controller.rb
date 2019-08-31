@@ -1,37 +1,54 @@
 class TestsController < ApplicationController
 
   #skip_before_action :find_test, only: :show
-  before_action :find_test, only: %i[show]
+  # before_action :find_test, only: %i[show]
   after_action :send_log_message
   around_action :log_execute_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
-    # result = ["Class: #{params.class}", "Parameters: #{params.inspect}"]
-    respond_to do |format|
-      format.html { render plain: 'All tests' }
-      format.json { render json: {tests: Test.all} }
-    end
+    @tests = Test.all
   end
 
   def show
-    render inline: '<%= @test.title %>'
+    @test = Test.find(params[:id])
   end
 
   def new
+    @test = Test.new
+  end
 
+  def edit
+    @test = Test.find(params[:id])
   end
 
   def create
-    test = Test.new(test_params)
+    @test = Test.new(test_params)
 
-    if test.save
-      render inline: 'Тест создан!'
-    else 
+    if @test.save
+      redirect_to @test
+    else
       render :new
     end
 
+  end
+
+  def update
+    @test = Test.find(params[:id])
+
+    if @test.update(test_params)
+      redirect_to @test
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @test = Test.find(params[:id])
+
+    @test.destroy
+    redirect_to tests_path
   end
 
   def search
