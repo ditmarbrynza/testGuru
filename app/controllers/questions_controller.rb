@@ -25,9 +25,26 @@ class QuestionsController < ApplicationController
 
   end
 
+  def update
+    @question = Question.find(params[:id])
+
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
+    end
+  end
+
+  def edit
+    @question = Question.find(params[:id])
+  end
+
   def destroy
+
+    @question = Question.find(params[:id])
     @question.destroy
-    render inline: 'Question was deleted'
+
+    redirect_to test_path(@question.test_id)
   end
 
   def new

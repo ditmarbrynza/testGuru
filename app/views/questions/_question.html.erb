@@ -4,7 +4,7 @@
   <td><%= link_to 'Edit', edit_question_path(question) %></td>
   <td>
     <%= link_to 'Delete',
-                test_path(question),
+                question_path(question),
                 method: :delete,
                 data:   { confirm: 'Are you sure' } %>
   </td>
