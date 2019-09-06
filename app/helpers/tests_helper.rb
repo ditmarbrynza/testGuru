@@ -4,18 +4,10 @@ module TestsHelper
 
   def test_level(test)
     TEST_LEVELS[test.level] || :hero
-    # case test.level
-    # when 0
-    #   'easy'
-    # when 1
-    #   'elementary'
-    # when 2
-    #   'advanced'
-    # when 3
-    #   'hard'
-    # else
-    #   'hero'
-    # end
+  end
+
+  def test_count(test)
+    test.questions.count    
   end
 
 end
