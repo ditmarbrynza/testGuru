@@ -1,0 +1,17 @@
+<h1> Tricky Tests </h1>
+
+<p>
+  <%= link_to 'New test', '/tests/new' %>
+</p>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Level</th>
+    <th>Questions</th>
+    <th colspan="3">Actions</th>
+  </tr>
+
+  <%= render @tests %>
+
+</table>

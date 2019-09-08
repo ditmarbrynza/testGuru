@@ -1,36 +1,46 @@
 class QuestionsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
-  before_action :find_test, only: %i[index create new]
-  before_action :find_question, only: %i[show destroy]
-  
+  before_action :find_test, only: %i[create new index]
+  before_action :find_question, only: %i[show destroy update edit]
+
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    render json: { questions: @test.questions }
-  end
-
   def show
-    render inline: '<%= @question.body %>'
   end
 
   def create
     @question = @test.questions.new(question_params)
 
     if @question.save
-      render inline: 'Вопрос создан!'
-    else 
+      redirect_to @test
+    else
       render :new
+    end
+
+  end
+
+  def update
+
+    if @question.update(question_params)
+      redirect_to @question
+    else
+      render :edit
     end
   end
 
+  def edit
+  end
+
   def destroy
+    
     @question.destroy
-    render inline: 'Question was deleted'
+
+    redirect_to test_path(@question.test_id)
   end
 
   def new
-    
+    @question = @test.questions.new
   end
 
   private
@@ -44,7 +54,7 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:questions).permit(:body)
+    params.require(:question).permit(:body)
   end
 
   def rescue_with_question_not_found
