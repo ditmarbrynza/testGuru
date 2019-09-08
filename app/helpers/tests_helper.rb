@@ -6,8 +6,4 @@ module TestsHelper
     TEST_LEVELS[test.level] || :hero
   end
 
-  def test_count(test)
-    test.questions.count    
-  end
-
 end

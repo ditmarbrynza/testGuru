@@ -1,17 +1,12 @@
 class QuestionsController < ApplicationController
 
   skip_before_action :verify_authenticity_token
-  before_action :find_test, only: %i[index create new]
-  before_action :find_question, only: %i[show destroy]
+  before_action :find_test, only: %i[create new index]
+  before_action :find_question, only: %i[show destroy update edit]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
-  def index
-    render json: { questions: @test.questions }
-  end
-
   def show
-    @question = Question.find(params[:id])
   end
 
   def create
@@ -26,7 +21,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @question = Question.find(params[:id])
 
     if @question.update(question_params)
       redirect_to @question
@@ -36,12 +30,10 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-    @question = Question.find(params[:id])
   end
 
   def destroy
-
-    @question = Question.find(params[:id])
+    
     @question.destroy
 
     redirect_to test_path(@question.test_id)
