@@ -2,6 +2,7 @@ class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
+  TESS_COMPLITED = 85
 
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
@@ -13,9 +14,19 @@ class TestPassage < ApplicationRecord
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_questions += 1
-    end 
+    end
 
     save!
+  end
+
+  def result(test_passage)
+    all_questions = test_passage.test.questions.count.to_i
+    right_questions = self.correct_questions.to_i
+
+    percent = right_questions * 100.0 / all_questions
+
+    return 'success', percent if percent >= TESS_COMPLITED
+    return 'error', percent if percent < TESS_COMPLITED
   end
 
   private

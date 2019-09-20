@@ -11,11 +11,16 @@ class Test < ApplicationRecord
   scope :easy, -> { where(level: 0..1) }
   scope :middle, -> { where(level: 2..4) }
   scope :hard, -> { where(level: 5..Float::INFINITY) }
-  
+
   def self.all_tests_name_titles(category)
     all_test_titles(category).order("categories.title DESC").pluck(:title)
   end
-  
+
+  def question_number(question)
+    index = self.questions.order(:id).index(question) || 0
+    index += 1
+  end
+
   validates :title, presence: true
   validates :level, numericality: { only_integer: true, greater_than: -1 }
   validates :title, uniqueness: { scope: :level }

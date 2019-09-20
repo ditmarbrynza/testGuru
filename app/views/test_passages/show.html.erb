@@ -15,7 +15,7 @@
 
   <p><%= form.submit 'Next' %></p>
 <% end %>
-<%byebug%>
+
 <div>
-  Current question <%= 1 %> of <span class="all_questions"><%= @test_passage.test.questions.count.to_i %> </span>
+  Current question <%= @test_passage.test.question_number(@test_passage.current_question) %> of <span class="all_questions"><%= @test_passage.test.questions.count.to_i %> </span>
 </div>

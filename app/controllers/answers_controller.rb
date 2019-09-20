@@ -14,20 +14,20 @@ class AnswersController < ApplicationController
   end
 
   def create
-    @answer = Answer.new(answer_params)
+    @answer = @question.answers.new(answer_params)
     if @answer.save
       redirect_to @answer
     else
-      render :new 
+      render :new
     end
 
   end
 
   def update
     if @answer.update(answer_params)
-      redirect_to @answer, notice: 'Answer was successfully updated.' 
+      redirect_to @answer, notice: 'Answer was successfully updated.'
     else
-      render :edit 
+      render :edit
     end
   end
 
@@ -46,6 +46,6 @@ class AnswersController < ApplicationController
     end
 
     def answer_params
-      params.require(:answer).permit(:body, :correct, :question_id)
+      params.require(:answer).permit(:body, :correct)
     end
 end
