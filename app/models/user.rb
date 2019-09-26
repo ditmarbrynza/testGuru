@@ -1,4 +1,9 @@
+require 'digest/sha1'
+
 class User < ApplicationRecord
+
+  include Auth
+
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: 'Test'
@@ -11,5 +16,4 @@ class User < ApplicationRecord
     test_passages.order(id: :desc).find_by(test_id: test.id)
   end
 
-  validates :email, presence: true
 end
