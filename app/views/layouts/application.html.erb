@@ -10,6 +10,10 @@
   </head>
 
   <body>
+    <% if logged_in? %>
+      <p class="nav user"><b><%= current_user.email%></b></p>
+    <% end%>
+
     <section class="content-wrapper">
       <div class="content-container">
         <%= yield %>
