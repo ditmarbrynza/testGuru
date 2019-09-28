@@ -2,7 +2,6 @@ class TestsController < ApplicationController
 
   before_action :authenticate_user!
   before_action :find_test, only: %i[show edit update destroy start]
-  before_action :find_user, only: :start
   after_action :send_log_message
   around_action :log_execute_time
 
@@ -54,6 +53,7 @@ class TestsController < ApplicationController
   end
 
   def start
+    @user = current_user
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end 
@@ -86,10 +86,6 @@ class TestsController < ApplicationController
 
   def rescue_with_test_not_found
     render plain: "Test was not Found"
-  end
-
-  def find_user
-    @user = current_user
   end
 
 end
