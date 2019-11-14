@@ -1,6 +1,5 @@
-class Admin::TestsController < ApplicationController
+class Admin::TestsController < Admin::BaseController
 
-  before_action :authenticate_user!
   before_action :find_test, only: %i[show edit update destroy start]
   after_action :send_log_message
   around_action :log_execute_time
