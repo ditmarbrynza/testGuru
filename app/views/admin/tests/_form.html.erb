@@ -16,11 +16,6 @@
     <%= form.collection_select :category_id, Category.all, :id, :title, promt: true, id: :test_category_id %>
   </p>
 
-  <p>
-    <%= form.label :user_id %>:
-    <%= form.collection_select :user_id, User.all, :id, :email, promt: true, id: :test_user_id %>
-  </p>
-
   <p><%= form.submit %></p>
 
 <% end %>

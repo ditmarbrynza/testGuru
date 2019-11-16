@@ -1,8 +1,6 @@
 class Admin::TestsController < Admin::BaseController
 
   before_action :find_test, only: %i[show edit update destroy start]
-  after_action :send_log_message
-  around_action :log_execute_time
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
@@ -22,9 +20,9 @@ class Admin::TestsController < Admin::BaseController
 
   def create
     @test = Test.new(test_params)
-
+    @test.user_id = current_user.id
     if @test.save
-      redirect_to @test
+      redirect_to admin_test_url(@test)
     else
       render :new
     end
@@ -34,7 +32,7 @@ class Admin::TestsController < Admin::BaseController
   def update
 
     if @test.update(test_params)
-      redirect_to @test
+      redirect_to admin_test_url(@test)
     else
       render :edit
     end
@@ -43,7 +41,7 @@ class Admin::TestsController < Admin::BaseController
   def destroy
 
     @test.destroy
-    redirect_to tests_path
+    redirect_to admin_tests_path
   end
 
   def search
@@ -69,18 +67,6 @@ class Admin::TestsController < Admin::BaseController
 
   def find_all_test
     @all_tests = Test.all
-  end
-
-  def send_log_message
-    logger.info("Action [#{action_name}] was finished")
-  end
-
-  def log_execute_time
-    start = Time.now
-    yield
-    finish = Time.now - start
-
-    logger.info("Execution time: #{finish * 1000}ms")
   end
 
   def rescue_with_test_not_found
