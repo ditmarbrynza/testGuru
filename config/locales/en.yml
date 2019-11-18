@@ -57,6 +57,7 @@ en:
           back: "Back"
       new:
         back: "Back"
+        create_new_test: "Create new tests"
       show:
         new_question: "New question"
         back: "Назад"
@@ -84,3 +85,22 @@ en:
   test_passages:
     result:
       to_all_tests: "To all tests"
+      header: "The test %{title} was Completed!"
+    success:
+      test_finished: "Test success finished with"
+    show:
+      current_question: "Current question"
+      pass_the_test: "Pass the %{test_title} Test"
+    error:
+      error_finished: "Error. Test was finished with "
+      
+
+  shared:
+    errors:
+      header:
+        one: "%{count} error detected"
+        other: "%{count} erros detected"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"

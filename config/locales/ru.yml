@@ -26,6 +26,7 @@ ru:
         back: "Назад"
       new:
         back: "Назад"
+        create_new_test: "Создать новый тест"
       show:
         new_question: "Новый вопрос"
         back: "Назад"
@@ -53,3 +54,23 @@ ru:
   test_passages:
     result:
       to_all_tests: "Ко всем тестам"
+      header: "Тест %{title} успешно завершен!"
+    success:
+      test_finished: "Тест успешно завершен с показателем"
+    show:
+      current_question: "Текущий вопрос"
+      pass_the_test: "В процессе %{test_title} Тест"
+    error:
+      error_finished: "Ошибка. Тест был завершен с"
+
+  shared:
+    errors:
+      header:
+        few: "Обнаружено %{count} ошибки"
+        many: "Обнаружено %{count} ошибок"
+        one: "Обнаружено %{count} ошибка"
+        other: "Обнаружено %{count} ошибки"
+  
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"
