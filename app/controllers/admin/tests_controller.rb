@@ -19,14 +19,12 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def create
-    @test = Test.new(test_params)
-    @test.user_id = current_user.id
+    @test = current_user.created_tests.create(test_params)
     if @test.save
       redirect_to admin_test_url(@test)
     else
       render :new
     end
-
   end
 
   def update
@@ -49,16 +47,10 @@ class Admin::TestsController < Admin::BaseController
     render plain: result.join("\n")
   end
 
-  def start
-    @user = current_user
-    @user.tests.push(@test)
-    redirect_to @user.test_passage(@test)
-  end 
-
   private
 
   def test_params
-    params.require(:test).permit(:title, :level, :category_id, :user_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 
   def find_test
