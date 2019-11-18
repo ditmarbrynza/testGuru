@@ -1,0 +1,55 @@
+ru:
+  hello: "Привет, мир!"
+
+  tests:
+    index:
+      header: "Доступные Тесты"
+      title: "Название"
+      level: "Уровень"
+      quetion: "Вопрос"
+      action: "Действие"
+    test:
+      start: "Начать"
+
+  admin:
+    tests:
+      create:
+        success: "Тест успешно создан."
+      index:
+        new_test: "Новый тест"
+        header: "Доступные Тесты"
+        title: "Название"
+        level: "Уровень"
+        quetion: "Вопрос"
+        action: "Действие"
+      edit:
+        back: "Назад"
+      new:
+        back: "Назад"
+      show:
+        new_question: "Новый вопрос"
+        back: "Назад"
+        edit: "Редактировать"
+        title: "Название:"
+      test:
+        show: "Показать"
+        edit: "Редактировать"
+        delete: "Удалить"
+        are_you_sure: "Вы уверены?"
+
+  helpers:
+    submit:
+      test:
+        create: "Создать Тест"
+        update: "Обновить Тест"
+    select:
+      prompt: "Выберите вариант"
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория"
+
+  test_passages:
+    result:
+      to_all_tests: "Ко всем тестам"

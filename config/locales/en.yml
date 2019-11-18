@@ -31,3 +31,56 @@
 
 en:
   hello: "Hello world"
+
+  tests:
+    index:
+      header: "Tricky Tests"
+      title: "Title"
+      level: "Level"
+      quetion: "Question"
+      action: "Action"
+    test:
+      start: "Start"
+
+  admin:
+    tests:
+      create:
+        success: "Test created successfully"
+      index:
+        new_test: "New Test"
+        header: "Tricky Tests"
+        title: "Title"
+        level: "Level"
+        quetion: "Question"
+        action: "Action"
+        edit:
+          back: "Back"
+      new:
+        back: "Back"
+      show:
+        new_question: "New question"
+        back: "Назад"
+        edit: "Edit"
+        title: "Title:"
+      test:
+        show: "Show"
+        edit: "Back"
+        delete: "Delete"
+        are_you_sure: "Are you sure?"
+
+  helpers:
+    submit:
+      test:
+        create: "Create Test"
+        update: "Update Test"
+    select:
+      prompt: "Please select"
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Category"
+
+  test_passages:
+    result:
+      to_all_tests: "To all tests"
