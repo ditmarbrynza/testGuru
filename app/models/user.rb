@@ -1,6 +1,12 @@
-require 'digest/sha1'
-
 class User < ApplicationRecord
+
+  devise  :database_authenticatable, # хэширование и сохранение пароля
+          :registerable, # регистрация
+          :recoverable, # восстановление пароля
+          :rememberable, # сохранение сессии между закрытиями браузера
+          :validatable, # валидация полей которые учавствуют в аунтефикации
+          :confirmable, # подтверждение регистрации пользователя
+          :trackable # сохранение статистики по входам пользователя
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -10,8 +16,6 @@ class User < ApplicationRecord
 
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :email, uniqueness: true
-
-  has_secure_password
 
   def completed_tests(level)
     tests.where(level: level)
