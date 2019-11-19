@@ -34,12 +34,14 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # AUTH
-
 gem 'devise', '~> 4.7'
 
 #localization
-
 gem 'rails-i18n', '~> 5.1.3'
+
+#UI
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.3.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
