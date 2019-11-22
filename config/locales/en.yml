@@ -93,6 +93,9 @@ en:
       pass_the_test: "Pass the %{test_title} Test"
     error:
       error_finished: "Error. Test was finished with "
+    gist:
+      success: "Gist was  successfully created!"
+      failure: "An error occurred while saving gist"
       
 
   shared:

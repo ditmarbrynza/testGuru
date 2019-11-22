@@ -62,6 +62,9 @@ ru:
       pass_the_test: "В процессе %{test_title} Тест"
     error:
       error_finished: "Ошибка. Тест был завершен с"
+    gist:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"
 
   shared:
     errors:
