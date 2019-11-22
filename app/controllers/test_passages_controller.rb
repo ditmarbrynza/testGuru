@@ -25,9 +25,8 @@ class TestPassagesController < ApplicationController
   def gist
     result = GistQuestionService.new(@test_passage.current_question).call
     
-    puts "!!!!!!!!!! result #{result}"
-    flash_options = if result.success?
-      { notice: t('.success') }
+    flash_options = if result.id?
+      { notice: t('.success') + " #{result.html_url}"} if new_gist(result)
     else
       { alert: t('.failure') }
     end
@@ -39,6 +38,12 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def new_gist(result)
+    question = @test_passage.current_question.body
+    gist = Gist.new(question: question[0..24], url: result.id, user_id: current_user.id, question_id: @test_passage.current_question.id)
+    gist.save
   end
 
 end
