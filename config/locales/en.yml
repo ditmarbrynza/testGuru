@@ -68,6 +68,8 @@ en:
         edit: "Back"
         delete: "Delete"
         are_you_sure: "Are you sure?"
+      form_inline:
+        submit: "OK"
 
   helpers:
     submit:
