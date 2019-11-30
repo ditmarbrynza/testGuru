@@ -55,11 +55,11 @@ redux_answer = Answer.create(body: "A predictable state container for JavaScript
 #   {email: "iam@gmail.com", role: "admin"}
 # ])
 
-user1 = User.create(email: "user1@gmail.com", role: "user")
-user2 = User.create(email: "user2@gmail.com", role: "user")
-user3 = User.create(email: "user3@gmail.com", role: "user")
-user4 = User.create(email: "user4@gmail.com", role: "user")
-user5 = User.create(email: "user5@gmail.com", role: "admin")
+# user1 = User.create(email: "user1@gmail.com", role: "user")
+# user2 = User.create(email: "user2@gmail.com", role: "user")
+# user3 = User.create(email: "user3@gmail.com", role: "user")
+# user4 = User.create(email: "user4@gmail.com", role: "user")
+# user5 = User.create(email: "user5@gmail.com", role: "admin")
 
 # complited_test1 = ComplitedTest.create(user_id: user1.id, test_id: animation.id)
 # complited_test2 = ComplitedTest.create(user_id: user1.id, test_id: flexbox.id)
