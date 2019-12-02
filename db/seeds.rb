@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user = User.find_by(id: 1)
+user = User.first
 user.update(type: "Admin")
 
 css = Category.create(title: "Css")
