@@ -110,10 +110,10 @@ ActiveRecord::Schema.define(version: 2019_11_22_202556) do
   add_foreign_key "complited_tests", "tests"
   add_foreign_key "complited_tests", "users"
   add_foreign_key "gists", "users"
-  add_foreign_key "questions", "tests"
+  add_foreign_key "questions", "tests", on_delete: :cascade
   add_foreign_key "test_passages", "questions", column: "current_question_id"
   add_foreign_key "test_passages", "tests"
   add_foreign_key "test_passages", "users"
-  add_foreign_key "tests", "categories"
-  add_foreign_key "tests", "users"
+  add_foreign_key "tests", "categories", on_delete: :cascade
+  add_foreign_key "tests", "users", on_delete: :cascade
 end

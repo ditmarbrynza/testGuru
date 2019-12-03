@@ -12,6 +12,7 @@
       <%= b.check_box id: "answer_ids_#{b.object.id}"%>
       <%= b.label %>
     </p>
+  </div>
   <% end %>
 
   <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
@@ -26,6 +27,7 @@
     <%= @test_passage.test.questions.count.to_i %> 
   </span>
 </div>
+
 
 <div class="progress-bar-container">
   <div class="progress-bar" 
