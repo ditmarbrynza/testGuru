@@ -3,6 +3,11 @@ body
   margin: 0
   padding: 0
 
+.global_wrapper
+  display: flex
+  flex-direction: column
+  height: 100vh
+  justify-content: space-between
 
 .progress-bar-container
   border-radius: 5px
@@ -22,10 +27,14 @@ body
     line-height: 30px
     margin: 0
 
+.nil-percent
+  color: #000
+  padding-left: 10px
 
-
-// a
-//   color: #fff
+.footer_project,
+.footer_school
+  a
+    color: #fff
 
 .content-wrapper
   max-width: 1120px
@@ -69,3 +78,13 @@ footer
   color: red
   font-size: 30px
   font-weight: 600
+  padding-left: 10px
+
+.contact_us
+  display: flex
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  textarea
+    width: 500px
+    height: 150px

@@ -62,11 +62,14 @@ ru:
     show:
       current_question: "Текущий вопрос"
       pass_the_test: "В процессе %{test_title} Тест"
+      no_questions: "Ошибка! Тесты не содержат вопросов."
     error:
       error_finished: "Ошибка. Тест был завершен с"
     gist:
       success: "Gist успешно сохранен!"
       failure: "Во время сохранения gist произошла ошибка"
+    update:
+      no_answer: "Вам необходимо выбрать вариант ответа!"
 
   shared:
     errors:

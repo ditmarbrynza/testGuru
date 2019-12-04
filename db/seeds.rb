@@ -6,21 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+user = User.first
+user.update(type: "Admin")
+
 css = Category.create(title: "Css")
 js = Category.create(title: "Js")
 react = Category.create(title: "React")
 
-animation = Test.create(title: "Animation", level: 1, category_id: css.id)
-flexbox = Test.create(title: "Flexbox", level: 2, category_id: css.id)
-grid = Test.create(title: "Grid", level: 3, category_id: css.id)
+animation = Test.create(title: "Animation", level: 1, category_id: css.id, user_id: user.id)
+flexbox = Test.create(title: "Flexbox", level: 2, category_id: css.id, user_id: user.id)
+grid = Test.create(title: "Grid", level: 3, category_id: css.id, user_id: user.id)
 
-dom = Test.create(title: "DOM", level: 1, category_id: js.id)
-events = Test.create(title: "Events", level: 2, category_id: js.id)
-es6 = Test.create(title: "ES6", level: 3, category_id: js.id)
+dom = Test.create(title: "DOM", level: 1, category_id: js.id, user_id: user.id)
+events = Test.create(title: "Events", level: 2, category_id: js.id, user_id: user.id)
+es6 = Test.create(title: "ES6", level: 3, category_id: js.id, user_id: user.id)
 
-props =  Test.create(title: "Props", level: 1, category_id: react.id)
-components =  Test.create(title: "Components", level: 2, category_id: react.id)
-redux =  Test.create(title: "Redux", level: 3, category_id: react.id)
+props =  Test.create(title: "Props", level: 1, category_id: react.id, user_id: user.id)
+components =  Test.create(title: "Components", level: 2, category_id: react.id, user_id: user.id)
+redux =  Test.create(title: "Redux", level: 3, category_id: react.id, user_id: user.id)
 
 animation_question = Question.create(body: "What is CSS Animation?", test_id: animation.id)
 flexbox_question = Question.create(body: "What is Flexboxes?", test_id: flexbox.id)
@@ -55,11 +59,11 @@ redux_answer = Answer.create(body: "A predictable state container for JavaScript
 #   {email: "iam@gmail.com", role: "admin"}
 # ])
 
-user1 = User.create(email: "user1@gmail.com", role: "user")
-user2 = User.create(email: "user2@gmail.com", role: "user")
-user3 = User.create(email: "user3@gmail.com", role: "user")
-user4 = User.create(email: "user4@gmail.com", role: "user")
-user5 = User.create(email: "user5@gmail.com", role: "admin")
+# user1 = User.create(email: "user1@gmail.com", role: "user")
+# user2 = User.create(email: "user2@gmail.com", role: "user")
+# user3 = User.create(email: "user3@gmail.com", role: "user")
+# user4 = User.create(email: "user4@gmail.com", role: "user")
+# user5 = User.create(email: "user5@gmail.com", role: "admin")
 
 # complited_test1 = ComplitedTest.create(user_id: user1.id, test_id: animation.id)
 # complited_test2 = ComplitedTest.create(user_id: user1.id, test_id: flexbox.id)
@@ -77,4 +81,4 @@ user5 = User.create(email: "user5@gmail.com", role: "admin")
 # complited_test11 = ComplitedTest.create(user_id: user4.id, test_id: animation.id)
 # complited_test12 = ComplitedTest.create(user_id: user4.id, test_id: flexbox.id)
 
-# complited_test13 = ComplitedTest.create(user_id: user5.id, test_id: events.id)
+# complited_test13 = ComplitedTest.create(user_id: user5.id, test_id: events.id) 
