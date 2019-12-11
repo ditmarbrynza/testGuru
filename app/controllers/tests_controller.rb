@@ -12,6 +12,8 @@ class TestsController < ApplicationController
   def start
     @user = current_user
     @user.tests.push(@test)
+    @time_left = Time.now + @test.timer * 60
+    @test.set_time_left(@time_left)
     redirect_to @user.test_passage(@test)
   end 
 

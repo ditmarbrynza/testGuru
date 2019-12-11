@@ -1,4 +1,7 @@
-<h1><%= t('.pass_the_test', test_title: @test_passage.test.title ) %></h1>
+<div class="title_container">
+  <h1><%= t('.pass_the_test', test_title: @test_passage.test.title ) %></h1>
+  <div class="timer"  data-all-tests = "<%= @test_passage.test.timer %>"> </div>
+</div>
 
 <p>
   <%= @test_passage.current_question.body %>
