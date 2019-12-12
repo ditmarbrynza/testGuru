@@ -19,6 +19,10 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def get_timer
+    self.time_left - Time.now
+  end
+
   def result(test_passage)
     all_questions = test_passage.test.questions.count.to_i
     right_questions = self.correct_questions.to_i
@@ -32,6 +36,7 @@ class TestPassage < ApplicationRecord
   private
 
   def before_validation_set_first_question
+    self.time_left = Time.now + test.timer * 60
     self.current_question = test.questions.first if test.present?
   end
 
