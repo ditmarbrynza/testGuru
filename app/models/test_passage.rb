@@ -19,6 +19,10 @@ class TestPassage < ApplicationRecord
     save!
   end
 
+  def get_timer
+    self.created_at + self.test.timer * 60 - Time.now
+  end
+
   def result(test_passage)
     all_questions = test_passage.test.questions.count.to_i
     right_questions = self.correct_questions.to_i

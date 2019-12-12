@@ -2,6 +2,7 @@ class TestPassagesController < ApplicationController
 
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[show update result gist]
+  before_action :check_time_left, only: %i[show update gist]
 
   def show
     if @test_passage.current_question != nil
@@ -9,11 +10,11 @@ class TestPassagesController < ApplicationController
     else
       redirect_to root_path, notice: t('.no_questions')
     end
-  end 
+  end
 
-  def result 
+  def result
 
-  end 
+  end
 
   def update
     if params[:answer_ids]
@@ -33,7 +34,7 @@ class TestPassagesController < ApplicationController
   def gist
     new_gist = GistQuestionService.new(@test_passage.current_question)
     result = new_gist.call
-    
+
     if new_gist.success?
       question_title = @test_passage.current_question.body
       current_user.gists.create(question_title: question_title[0..24], url: result.id, question_id: @test_passage.current_question.id).save!
@@ -50,6 +51,14 @@ class TestPassagesController < ApplicationController
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
+  end
+
+  def check_time_left
+    redirect_to result_test_passage_path(@test_passage) if time_left?
+  end
+
+  def time_left?
+    @test_passage.created_at + @test_passage.test.timer * 60 - Time.now <= 0 ? true : false
   end
 
 end

@@ -13,7 +13,7 @@ class TestsController < ApplicationController
     @user = current_user
     @user.tests.push(@test)
     redirect_to @user.test_passage(@test)
-  end 
+  end
 
   private
 

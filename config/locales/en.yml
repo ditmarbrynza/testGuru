@@ -39,6 +39,7 @@ en:
       level: "Level"
       quetion: "Question"
       action: "Action"
+      time: "Time"
     test:
       start: "Start"
 

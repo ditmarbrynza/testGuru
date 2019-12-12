@@ -8,6 +8,7 @@ ru:
       level: "Уровень"
       quetion: "Вопрос"
       action: "Действие"
+      time: "Время"
     test:
       start: "Начать"
 
