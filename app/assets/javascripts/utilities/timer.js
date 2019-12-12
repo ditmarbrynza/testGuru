@@ -4,6 +4,8 @@ document.addEventListener('turbolinks:load', function() {
 
   if (timerSelector) {
     timer = timerSelector.dataset.timer
+    let timerId = setInterval(() => startTime(), 1000)
+    
     function startTime() {
       if (timer > 60) {
         timerSelector.innerHTML = Math.round(timer/60)
@@ -13,10 +15,11 @@ document.addEventListener('turbolinks:load', function() {
       } else
       if (timer <= 0) {
         window.location.href = window.location.href + '/result'
+        clearInterval(timerId)
+        return
       }
-      setTimeout(startTime, 1000);
       timer --
     }
-    startTime();
+
   }
 })

@@ -58,7 +58,7 @@ class TestPassagesController < ApplicationController
   end
 
   def time_left?
-    @test_passage.time_left - Time.now <= 0 ? true : false
+    @test_passage.created_at + @test_passage.test.timer * 60 - Time.now <= 0 ? true : false
   end
 
 end

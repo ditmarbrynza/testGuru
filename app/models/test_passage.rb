@@ -20,7 +20,7 @@ class TestPassage < ApplicationRecord
   end
 
   def get_timer
-    self.time_left - Time.now
+    self.created_at + self.test.timer * 60 - Time.now
   end
 
   def result(test_passage)
@@ -36,7 +36,6 @@ class TestPassage < ApplicationRecord
   private
 
   def before_validation_set_first_question
-    self.time_left = Time.now + test.timer * 60
     self.current_question = test.questions.first if test.present?
   end
 
