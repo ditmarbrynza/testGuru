@@ -8,7 +8,15 @@
         <button type="button" class="btn btn-link mr-19">
           <%= link_to "Admin Panel", admin_tests_path %>
         </button>
+        <button type="button" class="btn btn-link mr-19">
+          <%= link_to "Admin Badges", admin_tests_path %>
+        </button>
       <% end %>
+
+      <button type="button" class="btn btn-link mr-19">
+        <%= link_to "Badges", badges_path %>
+      </button>
+      
       Welcome, <b><%= current_user.email %></b> Guru |
       <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
       <% else %>
