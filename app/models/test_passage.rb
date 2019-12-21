@@ -2,12 +2,12 @@ class TestPassage < ApplicationRecord
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: 'Question', optional: true
-  TESS_COMPLITED = 85
+  TESS_COMPLETED = 85
 
   before_validation :before_validation_set_first_question, on: :create
   before_validation :before_validation_set_next_question, on: :update
 
-  def complited?
+  def completed?
     current_question.nil?
   end
 
@@ -29,8 +29,8 @@ class TestPassage < ApplicationRecord
 
     percent = right_questions * 100.0 / all_questions
 
-    return 'success', percent if percent >= TESS_COMPLITED
-    return 'error', percent if percent < TESS_COMPLITED
+    return 'success', percent if percent >= TESS_COMPLETED
+    return 'error', percent if percent < TESS_COMPLETED
   end
 
   private

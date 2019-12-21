@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_21_125245) do
+ActiveRecord::Schema.define(version: 2019_12_21_152724) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,13 +36,13 @@ ActiveRecord::Schema.define(version: 2019_12_21_125245) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "complited_tests", force: :cascade do |t|
+  create_table "completed_tests", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "test_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.index ["test_id"], name: "index_complited_tests_on_test_id"
-    t.index ["user_id"], name: "index_complited_tests_on_user_id"
+    t.index ["test_id"], name: "index_completed_tests_on_test_id"
+    t.index ["user_id"], name: "index_completed_tests_on_user_id"
   end
 
   create_table "gists", force: :cascade do |t|
@@ -124,8 +124,8 @@ ActiveRecord::Schema.define(version: 2019_12_21_125245) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-  add_foreign_key "complited_tests", "tests"
-  add_foreign_key "complited_tests", "users"
+  add_foreign_key "completed_tests", "tests"
+  add_foreign_key "completed_tests", "users"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests", on_delete: :cascade
   add_foreign_key "test_passages", "questions", column: "current_question_id"
