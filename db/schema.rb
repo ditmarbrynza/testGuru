@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_21_152724) do
+ActiveRecord::Schema.define(version: 2019_12_26_181721) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2019_12_21_152724) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.json "condition", default: {}
   end
 
   create_table "categories", force: :cascade do |t|
@@ -41,6 +42,8 @@ ActiveRecord::Schema.define(version: 2019_12_21_152724) do
     t.integer "test_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean "status", default: false
+    t.integer "try", default: 1
     t.index ["test_id"], name: "index_completed_tests_on_test_id"
     t.index ["user_id"], name: "index_completed_tests_on_user_id"
   end

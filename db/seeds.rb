@@ -83,10 +83,13 @@
 
 # complited_test13 = ComplitedTest.create(user_id: user5.id, test_id: events.id) 
 
-easy_badge = Badge.create(title: "Easy Tests", image_url: "http://localhost:3000/assets/easy_badge.svg")
-elementary_badge = Badge.create(title: "Elementary Tests", image_url: "http://localhost:3000/assets/elementary_badge.svg")
-advanced_badge = Badge.create(title: "Advanced Tests", image_url: "http://localhost:3000/assets/advanced_badge.svg")
-hard_badge = Badge.create(title: "Hard Tests", image_url: "http://localhost:3000/assets/hard_badge.svg")
-ruby_badge = Badge.create(title: "Ruby Tests", image_url: "http://localhost:3000/assets/ruby_badge.svg")
-rails_badge = Badge.create(title: "Rails Tests", image_url: "http://localhost:3000/assets/rails_badge.svg")
-first_try_badge = Badge.create(title: "First Try Tests", image_url: "http://localhost:3000/assets/first_try_badge.svg")
+ruby = Category.create(title: "Ruby")
+rails = Category.create(title: "Rails")
+
+easy_badge = Badge.create(title: "Easy Tests", image_url: "http://localhost:3000/assets/easy_badge.svg", condition: {"level": 0})
+elementary_badge = Badge.create(title: "Elementary Tests", image_url: "http://localhost:3000/assets/elementary_badge.svg", condition: {"level": 1})
+advanced_badge = Badge.create(title: "Advanced Tests", image_url: "http://localhost:3000/assets/advanced_badge.svg", condition: {"level": 2})
+hard_badge = Badge.create(title: "Hard Tests", image_url: "http://localhost:3000/assets/hard_badge.svg", condition: {"level": 3})
+ruby_badge = Badge.create(title: "Ruby Tests", image_url: "http://localhost:3000/assets/ruby_badge.svg", condition: {"category": ruby.id})
+rails_badge = Badge.create(title: "Rails Tests", image_url: "http://localhost:3000/assets/rails_badge.svg", condition: {"category": rails.id})
+first_try_badge = Badge.create(title: "First Try Tests", image_url: "http://localhost:3000/assets/first_try_badge.svg", condition: {"first_try": true})
