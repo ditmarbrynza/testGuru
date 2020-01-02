@@ -1,0 +1,28 @@
+<p>
+  <strong> Title </strong>
+  <%= @badge.title %>
+</p>
+
+
+<p>
+  <strong> Image Url: </strong>
+  <%= @badge.image_url %>
+<p>
+
+
+<p>
+  <strong> Condition: </strong>
+    <%= @badge.condition %> 
+</p>
+
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th colspan="3">Actions</th>
+  </tr>
+
+</table>
+
+<%= link_to t('.edit'), edit_admin_badge_path(@badge) %>
+<%= link_to t('.back'), admin_badges_path %>
