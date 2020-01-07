@@ -63,29 +63,32 @@ class BadgeService
 
   def check_conditions(badge)
     if badge.condition["level"]
-      completed_test_ids = []
-
       level = badge.condition["level"]
       all_test_ids = find_all_tests_by_level(level)
-
-      @user_completed_tests.each do |test| 
-        completed_test_ids.push(test.test.id) if test.test.level == level
-      end
-
+      completed_test_ids = get_completed_test_level_ids(level)
       add_badge_to_user(all_test_ids, completed_test_ids, badge)
-
     elsif badge.condition["category"]
-      completed_test_ids = []
-      
       category = badge.condition["category"]
       all_test_ids = find_all_tests_by_category(category)
-
-      @user_completed_tests.each do |test| 
-        completed_test_ids.push(test.test.id) if test.test.category_id == category
-      end
-
+      completed_test_ids = get_completed_test_category_ids(category)
       add_badge_to_user(all_test_ids, completed_test_ids, badge)
     end
+  end
+
+  def get_completed_test_level_ids(level)
+    completed_test_ids = []
+    @user_completed_tests.each do |test| 
+      completed_test_ids.push(test.test.id) if test.test.level == level
+    end
+    completed_test_ids
+  end
+
+  def get_completed_test_category_ids(category)
+    completed_test_ids = []
+    @user_completed_tests.each do |test| 
+      completed_test_ids.push(test.test.id) if test.test.category_id == category
+    end
+    completed_test_ids
   end
 
   def add_badge_to_user(all_test_ids, completed_test_ids, badge)
