@@ -12,8 +12,10 @@
     <div class="global_wrapper">
       <div class="global_container">
         <%= render 'shared/nav'%>
-        <%= render 'shared/flash' %>
-        <%= yield %>
+        <div class="container">
+          <%= render 'shared/flash' %>
+          <%= yield %>
+        </div>
       </div>
       <%= render "shared/footer" %>
     </div>

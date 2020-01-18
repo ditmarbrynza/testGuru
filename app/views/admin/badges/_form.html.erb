@@ -1,0 +1,28 @@
+<%= form_with model: [:admin, @badge], local: true do |form| %>
+  <%= render 'shared/errors', resource: @badge %>
+
+  <div>Формат условия выдачи бейджа записывается в поле Condition через:
+    <p>{ " " => " "}, где</p>
+    <p>{ "category" => category_id}</p>
+    <p>{ "level" => level}</p>
+    <p>{ "first_try" => true}</p>
+  </div>
+
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title, id: :badge_title %>
+  </p>
+
+  <p>
+    <%= form.label :image_url %> <br>
+    <%= form.text_field :image_url, id: :badge_image_url%>
+  </p>
+
+  <p>
+    <%= form.label :condition %> <br>
+    <%= form.text_field :condition, id: :badge_condition_id %>
+  </p>
+
+  <p><%= form.submit %></p>
+
+<% end %>
